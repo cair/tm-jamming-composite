@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tmu-jamming"
+dynamic = ["version"]
+
+dependencies = [
+  "scikit-image==0.22.0",
+  "scikit-learn==1.4.1.post1",
+  "matplotlib==3.8.3",
+  "tqdm==4.66.2",
+  "opencv-python-headless==4.9.0.80",
+  { git = "https://github.com/cair/tmu.git", branch = "dev", name = "tmu" }
+]
+
+[tool.hatch.version]
+scheme = "vcs"
+
+requires-python = ">=3.8"
+
+authors = [
+  {name = "Per-Arne Andersen", email = "per.andersen@uia.no"},
+]
+maintainers = [
+  {name = "Per-Arne Andersen", email = "per.andersen@uia.no"}
+]
+
+description = "Using TMU to predict jamming in wireless networks."
+
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+keywords = []
+classifiers = [
+  "Programming Language :: Python"
+]
+
+[project.optional-dependencies]
+
+
+[project.urls]
+Homepage = "https://example.com"
+Documentation = "https://readthedocs.org"
+Repository = "https://github.com/me/spam.git"
+"Bug Tracker" = "https://github.com/me/spam/issues"
+Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
