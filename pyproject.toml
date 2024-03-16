@@ -12,11 +12,18 @@ dependencies = [
   "matplotlib==3.8.3",
   "tqdm==4.66.2",
   "opencv-python-headless==4.9.0.80",
-  { git = "https://github.com/cair/tmu.git", branch = "dev", name = "tmu" }
+  "pycuda",
+  "tmu @ git+https://github.com/cair/tmu.git@dev",
+  "tmu[composite] @ git+https://github.com/cair/tmu.git@dev"
 ]
 
+[tool.hatch.metadata]
+allow-direct-references = true
+
 [tool.hatch.version]
-scheme = "vcs"
+scheme = "regex"
+path = "tmu_jamming/__version__.py"
+pattern = '__version__ = "(?P<version>[^"]+)"'
 
 requires-python = ">=3.8"
 
@@ -45,3 +52,6 @@ Documentation = "https://readthedocs.org"
 Repository = "https://github.com/me/spam.git"
 "Bug Tracker" = "https://github.com/me/spam/issues"
 Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tmu_jamming"]
